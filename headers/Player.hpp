@@ -37,4 +37,5 @@ public:
     friend class Ambassador;
     friend class Captain;
     friend class Contessa;
+    friend class Game;
 };
