@@ -10,12 +10,14 @@ SOURCES=Game.cpp Player.cpp Duke.cpp Assassin.cpp Ambassador.cpp Captain.cpp Con
 OBJECTS=$(subst .cpp,.o,$(SOURCES))
 
 
-run: demo
+run: demo1
 	./demo
 
 demo1: Demo.o $(OBJECTS)
 	$(CXX) $(CXXFLAGS) $^ -o demo
 
+main: main.o $(OBJECTS)
+	$(CXX) $(CXXFLAGS) $^ -o main
 
 test: TestCounter.o Test.o $(OBJECTS)
 	$(CXX) $(CXXFLAGS) $^ -o test
@@ -28,7 +30,8 @@ valgrind: demo test
 	valgrind --tool=memcheck $(VALGRIND_FLAGS) ./test 2>&1 | { egrep "lost| at " || true; }
 
 %.o: %.cpp
-	$(CXX) $(CXXFLAGS) --compile $< -o $@
+	$(CXX) $(CXXFLAGS) --compile -g $< -o $@
 
 clean:
 	rm -f *.o demo test
+	rm main

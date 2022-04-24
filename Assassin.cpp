@@ -1,11 +1,15 @@
 #include <iostream>
 
-#include "headers/Assassin.hpp"
+#ifndef PLAYER_H
+#define PLAYER_H
 #include "headers/Player.hpp"
+#endif
 
-void coup::Assassin::coup(coup::Player& player)
+#include "headers/Assassin.hpp"
+
+void coup::Assassin::assassin_kill(coup::Player& player)
 {
-    if (this->coins >= this->assassin_price)
+    if (this->n_coins >= this->assassin_price)
     {
         player.die();
     }

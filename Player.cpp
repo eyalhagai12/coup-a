@@ -4,9 +4,9 @@
 
 void coup::Player::coup(Player &player)
 {
-    if (this->coins >= coup_price)
+    if (this->n_coins >= coup_price)
     {
-        this->coins -= coup_price;
+        this->n_coins -= coup_price;
         player.die();
     }
 }

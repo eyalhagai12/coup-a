@@ -1,14 +1,16 @@
-#include <iostream>
-
-#include "headers/Player.hpp"
+#ifndef PLAYER_H
+#define PLAYER_H
+#include "Player.hpp"
+#endif
 
 class coup::Assassin : public coup::Player
 {
 private:
-    player *last_killed;
+    coup::Player *last_killed;
     static const unsigned int assassin_price = 3;
+
 public:
-    Assassin(coup::Game game, std::string player_name) : Player(game, player_name), last_killed(nullptr);
-    virtual void coup(coup::Player& player);
-    ~Assassin();
+    Assassin(coup::Game game, std::string player_name) : Player(game, player_name, "Assassin"), last_killed(nullptr) {}
+    void assassin_kill(coup::Player &player);
+    ~Assassin() {}
 };
