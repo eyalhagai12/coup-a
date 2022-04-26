@@ -1,22 +1,15 @@
-#ifndef PLAYER_H
-#define PLAYER_H
-#include "headers/Player.hpp"
-#endif
-
 #include "headers/Duke.hpp"
 
-/* Give the duke 3 coins (unblockable) */
-void coup::Duke::take_three()
+void coup::Duke::tax()
 {
     this->n_coins += 3;
 }
 
-/* Block a player that used (or will use) foreign aid */
-void coup::Duke::block(Player &player)
+void coup::Duke::block(coup::Player &player)
 {
-    // at the moment only when someone used
-    if (player.last_move_type == took_foreign_aid)
+    if (player.n_coins < 2)
     {
-        player.n_coins -= 2;
+        std::cout << "Duke Block Exception!\n";
     }
+    player.n_coins -= 2;
 }

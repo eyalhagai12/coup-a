@@ -3,14 +3,13 @@
 #include "Player.hpp"
 #endif
 
-class coup::Captain : coup::Player
-{
-private:
-    coup::Player *last_stole_from;
+#define captain_steals 2
 
+class coup::Captain : public coup::Player
+{
 public:
-    Captain(coup::Game game, std::string player_name) : Player(game, player_name, "Captain"), last_stole_from(nullptr) {}
-    void steal_two(coup::Player &player);
-    void block_steal(coup::Player &from, coup::Player &to);
+    Captain(coup::Game game, std::string player_name) : Player(game, player_name, "Captain") {}
+    void steal(coup::Player &player);
+    void block(coup::Player &player);
     ~Captain() {}
 };

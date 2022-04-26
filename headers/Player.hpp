@@ -3,6 +3,18 @@
 #include "Game.hpp"
 #endif
 
+// define game parameters
+#define inc 1
+#define aid 2
+#define coup_price 7
+
+// define some constants
+#define start_of_game -1
+#define took_income 1
+#define took_foreign_aid 2
+#define couped 3
+
+// player class
 class coup::Player
 {
 protected:
@@ -22,13 +34,17 @@ public:
                                                                                          last_move_type(start_of_game),
                                                                                          role_name(role_name) {} // end of constructor
 
-    void income() { n_coins += 1; }
-    void foreign_aid() { n_coins += 2; }
-    void coup(Player &player);
-    void die();
-    void revive();
-    int coins() { return this->n_coins; }
-    void role() { std::cout << this->name << " - " << this->role_name << "." << std::endl; }
+    void income() { n_coins += inc; } // get income
+    void foreign_aid()
+    {
+        n_coins += aid;
+        this->game.end_turn();
+    }                                              // get foreign aid
+    virtual void coup(Player &player);             // coup a player
+    void die();                                    // die in game
+    void revive();                                 // come back to game (a specific case)
+    int coins() { return this->n_coins; }          // return amount of coins
+    std::string role() { return this->role_name; } // return role name
     ~Player() {}
 
     // friend classes

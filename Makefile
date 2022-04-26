@@ -10,10 +10,10 @@ SOURCES=Game.cpp Player.cpp Duke.cpp Assassin.cpp Ambassador.cpp Captain.cpp Con
 OBJECTS=$(subst .cpp,.o,$(SOURCES))
 
 
-run: demo1
+run: demo
 	./demo
 
-demo1: Demo.o $(OBJECTS)
+demo: Demo.o $(OBJECTS)
 	$(CXX) $(CXXFLAGS) $^ -o demo
 
 main: main.o $(OBJECTS)

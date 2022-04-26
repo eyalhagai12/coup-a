@@ -7,7 +7,7 @@ class coup::Ambassador : public coup::Player
 {
 public:
     Ambassador(coup::Game game, std::string player_name) : Player(game, player_name, "Ambassador") {}
-    void move_coins(coup::Player &from, coup::Player &to);
-    void block_steal(coup::Player &from, coup::Player &to);
+    void transfer(coup::Player &from, coup::Player &to);
+    void block(coup::Player& player);
     ~Ambassador() {}
 };

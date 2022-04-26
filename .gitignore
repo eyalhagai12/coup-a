@@ -37,4 +37,7 @@ demo
 test
 
 # vscode configurations
-.vscode
+.vscode]
+
+# ignore my log
+*.log

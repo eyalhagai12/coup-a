@@ -4,8 +4,11 @@
  * @author: Tal Zichlinsky
  * @since: 2022-02
  */
-
+#ifndef PLAYER_H
+#define PLAYER_H
 #include "headers/Player.hpp"
+#endif
+
 #include "headers/Duke.hpp"
 #include "headers/Assassin.hpp"
 #include "headers/Ambassador.hpp"

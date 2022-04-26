@@ -3,14 +3,12 @@
 #include "Player.hpp"
 #endif
 
+#define assassin_price 3
+
 class coup::Assassin : public coup::Player
 {
-private:
-    coup::Player *last_killed;
-    static const unsigned int assassin_price = 3;
-
 public:
-    Assassin(coup::Game game, std::string player_name) : Player(game, player_name, "Assassin"), last_killed(nullptr) {}
-    void assassin_kill(coup::Player &player);
+    Assassin(coup::Game game, std::string player_name) : Player(game, player_name, "Assassin") { game.add_player(*this); }
+    virtual void coup(coup::Player &player);
     ~Assassin() {}
 };
