@@ -1,5 +1,5 @@
 #include <iostream>
-#include "headers/Player.hpp"
+#include "Player.hpp"
 
 std::vector<std::string> coup::Game::players()
 {

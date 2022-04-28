@@ -1,6 +1,6 @@
 #include <iostream>
 
-#include "headers/Player.hpp"
+#include "Player.hpp"
 
 void coup::Player::coup(Player &player)
 {

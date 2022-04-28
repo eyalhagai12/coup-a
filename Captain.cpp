@@ -1,4 +1,4 @@
-#include "headers/Captain.hpp"
+#include "Captain.hpp"
 
 void coup::Captain::steal(coup::Player &player)
 {

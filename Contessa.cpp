@@ -1,8 +1,8 @@
-#include "headers/Contessa.hpp"
+#include "Contessa.hpp"
 
 #ifndef ASSASSIN_H
 #define ASSASSIN_H
-#include "headers/Assassin.hpp"
+#include "Assassin.hpp"
 #endif
 
 void coup::Contessa::block(coup::Assassin &player)

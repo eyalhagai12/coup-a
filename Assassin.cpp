@@ -1,4 +1,4 @@
-#include "headers/Assassin.hpp"
+#include "Assassin.hpp"
 
 void coup::Assassin::coup(coup::Player &player)
 {

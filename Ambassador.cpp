@@ -1,8 +1,8 @@
-#include "headers/Ambassador.hpp"
+#include "Ambassador.hpp"
 
 #ifndef CAP_H
 #define CAP_H
-#include "headers/Captain.hpp"
+#include "Captain.hpp"
 #endif
 
 void coup::Ambassador::transfer(coup::Player &from, coup::Player &to)

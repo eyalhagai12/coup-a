@@ -1,4 +1,4 @@
-#include "headers/Duke.hpp"
+#include "Duke.hpp"
 
 void coup::Duke::tax()
 {
