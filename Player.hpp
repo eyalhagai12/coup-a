@@ -19,6 +19,7 @@ class coup::Player
 {
 protected:
     int n_coins;
+    int idx;
     std::string name;
     std::string role_name;
     bool in_game;
@@ -34,7 +35,8 @@ public:
                                                                                           game(game),
                                                                                           last_move_type(start_of_game),
                                                                                           role_name(role_name),
-                                                                                          can_act(false) {} // end of constructor
+                                                                                          can_act(false),
+                                                                                          idx(0) {} // end of constructor
 
     void income() { n_coins += inc; } // get income
     void foreign_aid()

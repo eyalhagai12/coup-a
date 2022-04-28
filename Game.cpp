@@ -22,6 +22,7 @@ std::string coup::Game::turn()
 
 void coup::Game::add_player(coup::Player &player)
 {
+    player.idx = this->player_list.size();
     this->roles.at(player.role_name).push_back(&player);
     this->player_list.push_back(player);
 }

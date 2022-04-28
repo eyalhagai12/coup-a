@@ -5,7 +5,6 @@
 #include "Assassin.hpp"
 #endif
 
-void coup::Contessa::block(coup::Assassin &player)
+void coup::Contessa::block(coup::Player &player)
 {
-    player.uncoup();
 }
