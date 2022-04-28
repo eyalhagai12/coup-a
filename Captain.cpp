@@ -2,9 +2,10 @@
 
 void coup::Captain::steal(coup::Player &player)
 {
-    if (player.n_coins >= 2)
+    if (player.n_coins >= captain_steals)
     {
-        player.n_coins -= 2;
+        player.n_coins -= captain_steals;
+        this->n_coins += captain_steals;
     }
 }
 void coup::Captain::block(coup::Player &player)

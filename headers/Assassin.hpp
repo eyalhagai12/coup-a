@@ -7,8 +7,16 @@
 
 class coup::Assassin : public coup::Player
 {
+private:
+    Player *last_killed;
+
 public:
-    Assassin(coup::Game game, std::string player_name) : Player(game, player_name, "Assassin") { game.add_player(*this); }
+    Assassin(coup::Game &game, std::string player_name) : Player(game, player_name, "Assassin"),
+                                                          last_killed(nullptr)
+    {
+        game.add_player(*this);
+    }
     virtual void coup(coup::Player &player);
+    void uncoup();
     ~Assassin() {}
 };

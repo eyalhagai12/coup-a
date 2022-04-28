@@ -6,7 +6,10 @@ std::vector<std::string> coup::Game::players()
     std::vector<std::string> names;
     for (coup::Player &player : this->player_list)
     {
-        names.push_back(player.name);
+        if (player.is_alive())
+        {
+            names.push_back(player.name);
+        }
     }
 
     return names;
@@ -19,6 +22,16 @@ std::string coup::Game::turn()
 
 void coup::Game::add_player(coup::Player &player)
 {
-    this->roles.at(player.role_name).push_back(player);
+    this->roles.at(player.role_name).push_back(&player);
     this->player_list.push_back(player);
+}
+
+void coup::Game::end_turn()
+{
+    this->current_player = (this->current_player + 1) % this->player_list.size();
+
+    while (!this->player_list.at(this->current_player).in_game)
+    {
+        this->current_player = (this->current_player + 1) % this->player_list.size();
+    }
 }

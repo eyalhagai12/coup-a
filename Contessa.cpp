@@ -1,9 +1,11 @@
 #include "headers/Contessa.hpp"
 
-void coup::Contessa::block(coup::Player &player)
+#ifndef ASSASSIN_H
+#define ASSASSIN_H
+#include "headers/Assassin.hpp"
+#endif
+
+void coup::Contessa::block(coup::Assassin &player)
 {
-    if (!player.in_game)
-    {
-        player.revive();
-    }
+    player.uncoup();
 }

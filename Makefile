@@ -1,6 +1,6 @@
 #!make -f
 
-CXX=clang++-9 
+CXX=clang++-9
 CXXVERSION=c++2a
 CXXFLAGS=-std=$(CXXVERSION) -Werror -Wsign-conversion
 TIDY_FLAGS=-extra-arg=-std=$(CXXVERSION) -checks=bugprone-*,clang-analyzer-*,cppcoreguidelines-*,performance-*,portability-*,readability-*,-cppcoreguidelines-pro-bounds-pointer-arithmetic,-cppcoreguidelines-owning-memory --warnings-as-errors=-*
@@ -16,8 +16,6 @@ run: demo
 demo: Demo.o $(OBJECTS)
 	$(CXX) $(CXXFLAGS) $^ -o demo
 
-main: main.o $(OBJECTS)
-	$(CXX) $(CXXFLAGS) $^ -o main
 
 test: TestCounter.o Test.o $(OBJECTS)
 	$(CXX) $(CXXFLAGS) $^ -o test
@@ -34,4 +32,3 @@ valgrind: demo test
 
 clean:
 	rm -f *.o demo test
-	rm main

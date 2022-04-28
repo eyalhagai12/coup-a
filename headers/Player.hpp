@@ -22,17 +22,19 @@ protected:
     std::string name;
     std::string role_name;
     bool in_game;
-    coup::Game game;
+    coup::Game &game;
     int last_move_type;
+    bool can_act;
 
 public:
     // methods
-    Player(coup::Game game, std::string player_name, std::string role_name = "Player") : name(player_name),
-                                                                                         n_coins(0),
-                                                                                         in_game(true),
-                                                                                         game(game),
-                                                                                         last_move_type(start_of_game),
-                                                                                         role_name(role_name) {} // end of constructor
+    Player(coup::Game &game, std::string player_name, std::string role_name = "Player") : name(player_name),
+                                                                                          n_coins(0),
+                                                                                          in_game(true),
+                                                                                          game(game),
+                                                                                          last_move_type(start_of_game),
+                                                                                          role_name(role_name),
+                                                                                          can_act(false) {} // end of constructor
 
     void income() { n_coins += inc; } // get income
     void foreign_aid()
@@ -45,6 +47,7 @@ public:
     void revive();                                 // come back to game (a specific case)
     int coins() { return this->n_coins; }          // return amount of coins
     std::string role() { return this->role_name; } // return role name
+    bool is_alive() { return in_game; }            // check if player is still alive
     ~Player() {}
 
     // friend classes

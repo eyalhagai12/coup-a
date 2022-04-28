@@ -19,15 +19,24 @@ class coup::Game
 private:
     std::vector<coup::Player> player_list;
     size_t current_player;
-    std::unordered_map<std::string, std::vector<coup::Player>> roles;
+    std::unordered_map<std::string, std::vector<coup::Player *>> roles;
 
 public:
-    Game() : current_player(0) {}
+    Game() : current_player(0)
+    {
+        std::vector<std::string> role_list = {"Duke", "Assassin", "Ambassador", "Captain", "Contessa"};
+
+        for (std::string role : role_list)
+        {
+            std::pair<std::string, std::vector<coup::Player *>> kv_pair = {role, std::vector<coup::Player *>()};
+            roles.insert(kv_pair);
+        }
+    }
     void add_player(coup::Player &player);
     void print_players();
     std::vector<std::string> players();
     std::string turn();
     std::string winner();
-    void end_turn() { this->current_player = (this->current_player + 1) % this->player_list.size(); }
+    void end_turn();
     ~Game() {}
 };

@@ -12,5 +12,8 @@ int main(int argc, char const *argv[])
     Duke duke {game, "Eyal"};
     Assassin assassin {game, "Tal"};
 
+    duke.income();
+    assassin.foreign_aid();
+
     return 0;
 }

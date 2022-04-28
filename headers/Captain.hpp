@@ -8,7 +8,10 @@
 class coup::Captain : public coup::Player
 {
 public:
-    Captain(coup::Game game, std::string player_name) : Player(game, player_name, "Captain") {}
+    Captain(coup::Game &game, std::string player_name) : Player(game, player_name, "Captain")
+    {
+        this->game.add_player(*this);
+    }
     void steal(coup::Player &player);
     void block(coup::Player &player);
     ~Captain() {}
