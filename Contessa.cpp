@@ -5,7 +5,7 @@
 #include "Assassin.hpp"
 #endif
 
-void coup::Contessa::block(coup::Assassin &player)
+void coup::Contessa::block(coup::Player &player)
 {
-    player.uncoup();
+    std::cout << "Not implemented yet (contessa block)" << std::endl;
 }

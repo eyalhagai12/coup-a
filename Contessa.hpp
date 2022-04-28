@@ -10,6 +10,6 @@ public:
     {
         this->game.add_player(*this);
     }
-    void block(coup::Assassin &player);
+    void block(coup::Player &player);
     ~Contessa() {}
 };

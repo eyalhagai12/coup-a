@@ -17,6 +17,5 @@ public:
         game.add_player(*this);
     }
     virtual void coup(coup::Player &player);
-    void uncoup();
     ~Assassin() {}
 };

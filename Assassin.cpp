@@ -8,12 +8,6 @@ void coup::Assassin::coup(coup::Player &player)
         this->last_killed = &player;
         player.die();
     }
-}
-
-void coup::Assassin::uncoup()
-{
-    if (this->last_killed != nullptr)
-    {
-        this->last_killed->revive();
-    }
+    this->vulnerable = true;
+    this->game.end_turn();
 }

@@ -2,14 +2,19 @@
 
 void coup::Duke::tax()
 {
-    this->n_coins += 3;
+    if (this->game.turn() == this->name)
+    {
+        this->n_coins += 3;
+        this->game.end_turn();
+    }
+    else
+    {
+        std::cout << "Not your turn!" << std::endl;
+    }
 }
 
 void coup::Duke::block(coup::Player &player)
 {
-    if (player.n_coins < 2)
-    {
-        std::cout << "Duke Block Exception!\n";
-    }
     player.n_coins -= 2;
+    // this->game.end_turn();
 }
