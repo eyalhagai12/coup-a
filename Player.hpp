@@ -15,8 +15,8 @@ protected:
     std::string name;
     std::string role_name;
     bool in_game;
-    coup::Game &game;
     bool vulnerable;
+    coup::Game &game;
 
 public:
     // methods
@@ -36,6 +36,7 @@ public:
     int coins();                       // return amount of coins
     std::string role();                // return role name
     bool is_alive();                   // check if player is still alive
+    void print_player_info();          // print the info of the player
     ~Player() {}
 
     // friend classes

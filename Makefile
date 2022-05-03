@@ -18,6 +18,8 @@ demo: Demo.o $(OBJECTS)
 
 main: main.o $(OBJECTS)
 	$(CXX) $(CXXFLAGS) $^ -o main
+	echo Compilation Done!
+	./main
 
 test: TestCounter.o Test.o $(OBJECTS)
 	$(CXX) $(CXXFLAGS) $^ -o test

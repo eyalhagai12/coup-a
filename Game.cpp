@@ -23,7 +23,6 @@ std::string coup::Game::turn()
 void coup::Game::add_player(coup::Player &player)
 {
     player.idx = this->player_list.size();
-    this->roles.at(player.role_name).push_back(&player);
     this->player_list.push_back(player);
 }
 
@@ -36,7 +35,9 @@ void coup::Game::end_turn()
     {
         this->current_player = (this->current_player + 1) % this->player_list.size();
     }
+}
 
-    // set its vulnerabillity to false
-    this->player_list.at(this->current_player).vulnerable = false;
+void coup::Game::add_blockable(coup::Player *player, std::string blocking_role)
+{
+    this->blockable_dict.at(blocking_role).push_back(player);
 }

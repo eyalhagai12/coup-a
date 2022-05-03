@@ -11,8 +11,12 @@ void coup::Ambassador::transfer(coup::Player &from, coup::Player &to)
     {
         from.n_coins -= 1;
         to.n_coins += 1;
+        this->game.end_turn();
     }
-    this->game.end_turn();
+    else
+    {
+        std::cout << "Not your turn!" << std::endl;
+    }
 }
 void coup::Ambassador::block(coup::Player &player)
 {

@@ -18,11 +18,15 @@ namespace coup
 class coup::Game
 {
 private:
-    std::vector<coup::Player> player_list;
-    size_t current_player;
-    std::unordered_map<std::string, std::vector<coup::Player *>> roles;
+    std::vector<coup::Player> player_list; // the list of players
+    size_t current_player;                 // a pointer that keeps track of the current player
+
+    // a map that keeps a list of all the players a role can block, the key is the blocking role and the value
+    // is a list of pointer to players that can be blocked
+    // std::unordered_map<std::string, std::vector<coup::Player *>> blockable_dict;
 
 public:
+    std::unordered_map<std::string, std::vector<coup::Player *>> blockable_dict;
     Game() : current_player(0)
     {
         std::vector<std::string> role_list = {"Duke", "Assassin", "Ambassador", "Captain", "Contessa"};
@@ -30,10 +34,12 @@ public:
         for (std::string role : role_list)
         {
             std::pair<std::string, std::vector<coup::Player *>> kv_pair = {role, std::vector<coup::Player *>()};
-            roles.insert(kv_pair);
+            blockable_dict.insert(kv_pair);
         }
     }
     void add_player(coup::Player &player);
+    void add_blockable(coup::Player *player, std::string blocking_role);
+    bool can_block(coup::Player &player_to_block, std::string my_role);
     void print_players();
     std::vector<std::string> players();
     std::string turn();

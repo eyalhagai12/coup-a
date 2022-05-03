@@ -22,7 +22,13 @@ void coup::Player::foreign_aid()
     if (this->game.turn() == this->name)
     {
         this->n_coins += aid;
-        this->vulnerable = true;
+
+        if (!this->vulnerable)
+        {
+            this->vulnerable = true;
+            this->game.add_blockable(this, "Duke");
+        }
+
         this->game.end_turn();
     }
     else
@@ -42,6 +48,15 @@ void coup::Player::coup(Player &player)
     }
 }
 
+// print the player info
+void coup::Player::print_player_info()
+{
+    std::cout << "Player: " << this->name << std::endl
+              << "\tRole - " << this->role_name << std::endl
+              << "\tCoins - " << this->n_coins << std::endl
+              << std::endl;
+}
+
 // get number of coins
 int coup::Player::coins() { return this->n_coins; }
 
@@ -49,7 +64,7 @@ int coup::Player::coins() { return this->n_coins; }
 std::string coup::Player::role() { return this->role_name; }
 
 // check if the player is alive
-bool coup::Player::is_alive() { return in_game; }
+bool coup::Player::is_alive() { return this->in_game; }
 
 // die
 void coup::Player::die()
