@@ -22,13 +22,7 @@ void coup::Player::foreign_aid()
     if (this->game.turn() == this->name)
     {
         this->n_coins += aid;
-
-        if (!this->vulnerable)
-        {
-            this->vulnerable = true;
-            this->game.add_blockable(this, "Duke");
-        }
-
+        this->game.add_blockable(this, "Duke");
         this->game.end_turn();
     }
     else

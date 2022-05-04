@@ -40,6 +40,7 @@ public:
     void add_player(coup::Player &player);
     void add_blockable(coup::Player *player, std::string blocking_role);
     bool can_block(coup::Player &player_to_block, std::string my_role);
+    void remove_blockable_player();
     void print_players();
     std::vector<std::string> players();
     std::string turn();

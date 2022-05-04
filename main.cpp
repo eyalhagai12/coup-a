@@ -7,7 +7,7 @@
 using namespace coup;
 using namespace std;
 
-void print_key(std::unordered_map<std::string, std::vector<coup::Player *>> blockable_dict, string key)
+void print_key(std::unordered_map<std::string, std::vector<coup::Player *>> &blockable_dict, string key)
 {
 
     cout << "--------------------- Blockable Players: ---------------------" << endl;
@@ -27,32 +27,42 @@ int main(int argc, char const *argv[])
     Ambassador ambassador{game, "Ohad"};
     Captain captain{game, "Nir"};
 
-    for (size_t i = 0; i < 3; i++)
-    {
-        /* code */
+    // cout << "-------------------------------------" << endl;
+    // cout << "-------------- "
+    //      << "Round " << i + 1 << " --------------" << endl;
+    // cout << "-------------------------------------" << endl;
+    // cout << "It's " << game.turn() << "'s turn" << endl;
+    duke.income();
+    // duke.print_player_info();
+    // cout << "It's " << game.turn() << "'s turn" << endl;
+    assassin.foreign_aid();
+    // assassin.print_player_info();
+    // cout << "It's " << game.turn() << "'s turn" << endl;
+    contessa.foreign_aid();
+    // contessa.print_player_info();
+    // cout << "It's " << game.turn() << "'s turn" << endl;
+    ambassador.foreign_aid();
+    // ambassador.print_player_info();
+    // cout << "It's " << game.turn() << "'s turn" << endl;
+    captain.income();
+    // captain.print_player_info();
+    duke.block(captain);
+    duke.tax();
+    // duke.print_player_info();
+    // cout << "It's " << game.turn() << "'s turn" << endl;
+    assassin.income();
 
-        cout << "-------------------------------------" << endl;
-        cout << "-------------- "
-             << "Round " << i + 1 << " --------------" << endl;
-        cout << "-------------------------------------" << endl;
-        // cout << "It's " << game.turn() << "'s turn" << endl;
-        duke.income();
-        // duke.print_player_info();
-        // cout << "It's " << game.turn() << "'s turn" << endl;
-        assassin.foreign_aid();
-        // assassin.print_player_info();
-        // cout << "It's " << game.turn() << "'s turn" << endl;
-        contessa.foreign_aid();
-        // contessa.print_player_info();
-        // cout << "It's " << game.turn() << "'s turn" << endl;
-        ambassador.income();
-        // ambassador.print_player_info();
-        // cout << "It's " << game.turn() << "'s turn" << endl;
-        captain.foreign_aid();
-        // captain.print_player_info();
-        cout << endl
-             << endl;
-    }
+    contessa.income();
+
+    ambassador.foreign_aid();
+
+    captain.foreign_aid();
+
+    // duke.block(captain);
+    duke.tax();
+
+    cout << endl
+         << endl;
 
     print_key(game.blockable_dict, "Duke");
     return 0;

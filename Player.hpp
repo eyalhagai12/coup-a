@@ -15,8 +15,8 @@ protected:
     std::string name;
     std::string role_name;
     bool in_game;
-    bool vulnerable;
     coup::Game &game;
+    std::vector<std::string> blocking_roles;
 
 public:
     // methods
@@ -25,7 +25,7 @@ public:
                                                                                           in_game(true),
                                                                                           game(game),
                                                                                           role_name(role_name),
-                                                                                          vulnerable(false),
+                                                                                          blocking_roles(std::vector<std::string>()),
                                                                                           idx(0) {} // end of constructor
 
     void income();                     // get income

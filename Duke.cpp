@@ -15,6 +15,13 @@ void coup::Duke::tax()
 
 void coup::Duke::block(coup::Player &player)
 {
-    player.n_coins -= 2;
-    // this->game.end_turn();
+    if (this->game.can_block(player, "Duke"))
+    {
+        std::cout << "Duke Block Successfull!" << std::endl;
+        player.n_coins -= aid;
+    }
+    else
+    {
+        std::cout << "You Cant Block This Player!" << std::endl;
+    }
 }
